@@ -14,7 +14,7 @@ export type Product = {
   caution: string;
 };
 
-export const WHATSAPP_NUMBER = "27764238606";
+export const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "";
 
 export const categoryGroups = [
   { name: "Chemicals", subcategories: [] },
