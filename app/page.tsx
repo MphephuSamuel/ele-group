@@ -210,8 +210,8 @@ export default function Page() {
           </div>
           <div className="hero-image">
             <img
-              src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=90"
-              alt="Cardboard boxes prepared for delivery"
+              src="/images/paper-products/folded-hand-towels-12-packets-of-200-towels-2-ply-1.webp"
+              alt="Folded hand towels, 12 packets of 200 towels, 2 ply"
             />
             <div className="hero-note">
               <Truck size={20} />
