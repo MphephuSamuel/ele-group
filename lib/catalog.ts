@@ -149,20 +149,49 @@ function slugFromFilename(category: string, filename: string) {
     .replace(/[^a-z0-9]+/g, "-")}`;
 }
 
-export const products: Product[] = assetFiles.map(
-  ([category, filename], index) => {
-    const image = `/images/${category}/${filename}`;
+const groupedAssetFiles = Array.from(
+  assetFiles.reduce((groups, [category, filename]) => {
+    const numberedVariant = filename.match(/^(.*)-(\d+)\.webp$/i);
+    const baseFilename = numberedVariant
+      ? `${numberedVariant[1]}.webp`
+      : filename;
+    const key = `${category}/${baseFilename}`;
+    const group = groups.get(key);
+
+    if (group) {
+      group.filenames.push(filename);
+    } else {
+      groups.set(key, { category, baseFilename, filenames: [filename] });
+    }
+
+    return groups;
+  }, new Map<string, { category: (typeof assetFiles)[number][0]; baseFilename: string; filenames: string[] }>()),
+).map(([, { category, baseFilename, filenames }]) => ({
+  category,
+  baseFilename,
+  filenames: filenames.sort((first, second) => {
+    const firstNumber = Number(first.match(/-(\d+)\.webp$/i)?.[1] ?? 0);
+    const secondNumber = Number(second.match(/-(\d+)\.webp$/i)?.[1] ?? 0);
+    return firstNumber - secondNumber;
+  }),
+}));
+
+export const products: Product[] = groupedAssetFiles.map(
+  ({ category, baseFilename, filenames }, index) => {
+    const gallery = filenames.map(
+      (filename) => `/images/${category}/${filename}`,
+    );
     return {
       id: index + 1,
-      slug: slugFromFilename(category, filename),
-      name: titleFromFilename(filename),
+      slug: slugFromFilename(category, baseFilename),
+      name: titleFromFilename(baseFilename),
       parentCategory: categoryLabels[category],
       subcategory: "",
       price: 99,
       unit: "Each",
       tag: "Available",
-      image,
-      gallery: [image],
+      image: gallery[0],
+      gallery,
       desc: "Reliable product for homes, businesses and facilities.",
       directions:
         "Use according to the product requirements and intended application.",
