@@ -1,50 +1,180 @@
 export type Product = {
-  id: number
-  slug: string
-  name: string
-  parentCategory: string
-  subcategory: string
-  price: number
-  unit: string
-  tag: string
-  image: string
-  gallery: string[]
-  desc: string
-  directions: string
-  caution: string
-}
+  id: number;
+  slug: string;
+  name: string;
+  parentCategory: string;
+  subcategory?: string;
+  price: number;
+  unit: string;
+  tag: string;
+  image: string;
+  gallery: string[];
+  desc: string;
+  directions: string;
+  caution: string;
+};
 
-export const WHATSAPP_NUMBER = '27764238606'
+export const WHATSAPP_NUMBER = "27764238606";
 
 export const categoryGroups = [
-  { name: 'Chemicals', subcategories: ['General', 'Car'] },
-  { name: 'Paper Products', subcategories: ['Toilet Paper', 'Garage Roll', 'Hand Towels', 'Serviette'] },
-  { name: 'Trollies', subcategories: [] },
-  { name: 'Mop', subcategories: [] },
-  { name: 'Dustbins', subcategories: [] },
-  { name: 'Brooms', subcategories: [] },
-]
+  { name: "Chemicals", subcategories: [] },
+  { name: "Paper Products", subcategories: [] },
+  { name: "Trollies", subcategories: [] },
+  { name: "Mops", subcategories: [] },
+  { name: "Dustbins", subcategories: [] },
+  { name: "Brooms", subcategories: [] },
+];
 
-const image = (url: string) => `https://images.unsplash.com/${url}?auto=format&fit=crop&w=900&q=85`
+const categoryLabels: Record<string, string> = {
+  brooms: "Brooms",
+  chemicals: "Chemicals",
+  dustbins: "Dustbins",
+  mops: "Mops",
+  "paper-products": "Paper Products",
+  trollies: "Trollies",
+};
 
-export const products: Product[] = [
-  { id: 1, slug: 'heavy-duty-refuse-bags', name: 'Heavy Duty Refuse Bags', parentCategory: 'Chemicals', subcategory: 'General', price: 189, unit: 'Pack of 100', tag: 'Best seller', image: image('photo-1604187351574-c75ca79f5807'), gallery: [image('photo-1604187351574-c75ca79f5807'), image('photo-1583947215259-38e31be8751f')], desc: 'Strong, leak-resistant bags for homes, offices and commercial sites.', directions: 'Use for general waste disposal. Do not use for hot liquids.', caution: 'Keep away from children and open flames.' },
-  { id: 2, slug: 'multi-purpose-car-cleaner', name: 'Multi-Purpose Car Cleaner', parentCategory: 'Chemicals', subcategory: 'Car', price: 84, unit: '5 litre', tag: 'Everyday essential', image: image('photo-1583947215259-38e31be8751f'), gallery: [image('photo-1583947215259-38e31be8751f'), image('photo-1604187351574-c75ca79f5807')], desc: 'Concentrated cleaner for vehicle interiors, dashboards and washable surfaces.', directions: 'Dilute 1:10 for regular cleaning or use neat on stubborn marks.', caution: 'Do not mix with bleach. Avoid eye contact.' },
-  { id: 3, slug: 'commercial-general-cleaner', name: 'Commercial General Cleaner', parentCategory: 'Chemicals', subcategory: 'General', price: 112, unit: '5 litre', tag: 'Popular', image: image('photo-1583947215259-38e31be8751f'), gallery: [image('photo-1583947215259-38e31be8751f')], desc: 'Reliable everyday cleaning concentrate for offices, facilities and homes.', directions: 'Dilute with water according to the surface and soil level.', caution: 'Wear gloves and never combine with other chemicals.' },
-  { id: 4, slug: 'premium-2-ply-toilet-roll', name: 'Premium 2-Ply Toilet Roll', parentCategory: 'Paper Products', subcategory: 'Toilet Paper', price: 238, unit: 'Pack of 48', tag: 'Value pack', image: image('photo-1584622781564-1d987f7333c1'), gallery: [image('photo-1584622781564-1d987f7333c1')], desc: 'Soft, reliable 2-ply tissue for busy facilities and workplaces.', directions: 'Store in a clean, dry area.', caution: 'Keep packaging sealed until use.' },
-  { id: 5, slug: 'industrial-garage-roll', name: 'Industrial Garage Roll', parentCategory: 'Paper Products', subcategory: 'Garage Roll', price: 179, unit: 'Pack of 2', tag: 'Workshop essential', image: image('photo-1600185365483-26d7a4cc7519'), gallery: [image('photo-1600185365483-26d7a4cc7519')], desc: 'High-absorbency paper roll for workshops, garages and maintenance teams.', directions: 'Tear off sheets as needed for spills and wiping.', caution: 'Keep away from sparks and open flames.' },
-  { id: 6, slug: 'paper-hand-towel-roll', name: 'Paper Hand Towel Roll', parentCategory: 'Paper Products', subcategory: 'Hand Towels', price: 169, unit: 'Pack of 6', tag: 'Fast moving', image: image('photo-1600185365483-26d7a4cc7519'), gallery: [image('photo-1600185365483-26d7a4cc7519')], desc: 'Absorbent rolls for kitchens, bathrooms and service counters.', directions: 'Dispense one sheet at a time to reduce waste.', caution: 'Keep away from moisture before use.' },
-  { id: 7, slug: 'white-serviette-pack', name: 'White Serviette Pack', parentCategory: 'Paper Products', subcategory: 'Serviette', price: 79, unit: 'Ream of 500', tag: 'Catering ready', image: image('photo-1568667256549-094345857637'), gallery: [image('photo-1568667256549-094345857637')], desc: 'Neat, practical serviettes for catering, takeaway counters and events.', directions: 'Store flat in a dry environment.', caution: 'Keep sealed to prevent moisture damage.' },
-  { id: 8, slug: 'commercial-cleaning-trolley', name: 'Commercial Cleaning Trolley', parentCategory: 'Trollies', subcategory: 'Trollies', price: 849, unit: 'Each', tag: 'Bulk ready', image: image('photo-1584634731339-252c581abfc5'), gallery: [image('photo-1584634731339-252c581abfc5')], desc: 'Organised mobile storage for cleaning teams and facility staff.', directions: 'Load evenly and use on smooth, stable surfaces.', caution: 'Do not exceed the recommended load.' },
-  { id: 9, slug: 'commercial-mop', name: 'Commercial Mop', parentCategory: 'Mop', subcategory: 'Mop', price: 99, unit: 'Each', tag: 'Everyday essential', image: image('photo-1584634731339-252c581abfc5'), gallery: [image('photo-1584634731339-252c581abfc5')], desc: 'Durable mop for regular floor care in homes and facilities.', directions: 'Rinse after use and hang to dry.', caution: 'Do not store wet in a sealed container.' },
-  { id: 10, slug: 'wheelie-dustbin', name: 'Wheelie Dustbin', parentCategory: 'Dustbins', subcategory: 'Dustbins', price: 219, unit: 'Each', tag: 'Practical choice', image: image('photo-1601050690597-df0568f70950'), gallery: [image('photo-1601050690597-df0568f70950')], desc: 'Practical, easy-to-move waste bin for homes, offices and facilities.', directions: 'Use with a suitable refuse bag and clean regularly.', caution: 'Do not place hot ash or burning materials inside.' },
-  { id: 11, slug: 'heavy-duty-broom', name: 'Heavy Duty Broom', parentCategory: 'Brooms', subcategory: 'Brooms', price: 129, unit: 'Each', tag: 'Popular', image: image('photo-1584634731339-252c581abfc5'), gallery: [image('photo-1584634731339-252c581abfc5')], desc: 'Strong bristles for dependable sweeping across indoor and outdoor areas.', directions: 'Sweep with steady strokes and rinse bristles when needed.', caution: 'Store upright in a dry area.' },
-]
+const assetFiles = [
+  ["brooms", "broom-grass.webp"],
+  ["brooms", "bus-wash-broom-blue-complete-1.webp"],
+  ["brooms", "bus-wash-broom-blue-complete-2.webp"],
+  ["brooms", "bus-wash-broom-blue-complete-3.webp"],
+  ["brooms", "bus-wash-broom-blue-complete-4.webp"],
+  ["brooms", "house-broom-with-wire-assorted-1.webp"],
+  ["brooms", "house-broom-with-wire-assorted-2.webp"],
+  ["brooms", "plastic-leaf-rake-orange-ub.webp"],
+  ["brooms", "whisker-broom-household.webp"],
+  ["chemicals", "black-dip-outside-cleaner-5kg.webp"],
+  ["chemicals", "bleach-liquid-5point2-percent -25L.webp"],
+  ["chemicals", "bleach-liquid-5point2-percent -5L.webp"],
+  ["chemicals", "bubble-bath-liquid-5L.webp"],
+  ["chemicals", "bubble-bath-liquid-blue-5L.webp"],
+  ["chemicals", "bubble-bath-liquid-pink-5L.webp"],
+  ["chemicals", "dashboard-polish-25L.webp"],
+  ["chemicals", "dashboard-polish-5L.webp"],
+  ["chemicals", "dish-washing-liquid-25L.webp"],
+  ["chemicals", "dish-washing-liquid-5L.webp"],
+  ["chemicals", "drain-cleaner-powder-5kg.webp"],
+  ["chemicals", "engine-cleaner-red-25L.webp"],
+  ["chemicals", "floor-polish-20L.webp"],
+  ["chemicals", "hand-grit-hand-cleaner-5kg.webp"],
+  ["chemicals", "hand-washing-liquid-25L.webp"],
+  ["chemicals", "hand-washing-liquid-5L.webp"],
+  ["chemicals", "hp-auto-shampoo-for-carwash_25L.webp"],
+  ["chemicals", "hp-foamer-soap-for-carwash-25L.webp"],
+  ["chemicals", "hp-foamer-soap-for-carwash-5L.webp"],
+  ["chemicals", "leather-conditioner-5L.webp"],
+  ["chemicals", "multi-washing-powder-5kg.webp"],
+  ["chemicals", "oven-cleaner-degreaser-25L.webp"],
+  ["chemicals", "oven-cleaner-degreaser-5L.webp"],
+  ["chemicals", "pine-gel-general-cleaner-25kg-1.webp"],
+  ["chemicals", "pine-gel-general-cleaner-25kg-2.webp"],
+  ["chemicals", "pine-gel-general-cleaner-5kg.webp"],
+  ["chemicals", "pine-gel-general-cleaner-cherry-5kg.webp"],
+  ["chemicals", "pine-gel-general-cleaner-lavender-5kg.webp"],
+  ["chemicals", "scouring-liquid-25L.webp"],
+  ["chemicals", "scouring-liquid-5L.webp"],
+  ["chemicals", "softner-conditioner-fabric-5L.webp"],
+  ["chemicals", "superior-car-polish-5L.webp"],
+  ["chemicals", "thick-bleach-5point2-percent -25L.webp"],
+  ["chemicals", "thick-bleach-5point2-percent -5L.webp"],
+  ["chemicals", "toilet-bowl-cleaner-25L.webp"],
+  ["chemicals", "toilet-bowl-cleaner-5L.webp"],
+  ["chemicals", "tyre-sheen-for-carwash-25L.webp"],
+  ["dustbins", "divided-dustbin-red-60L-1.webp"],
+  ["dustbins", "divided-dustbin-red-60L-2.webp"],
+  ["dustbins", "dustbin-kitchen-rounded-50L-1.webp"],
+  ["dustbins", "dustbin-kitchen-rounded-50L-2.webp"],
+  ["dustbins", "outdoor-dustbin-black-240L.webp"],
+  ["dustbins", "yellow-dustbin-with-footpedal-15L-1.webp"],
+  ["dustbins", "yellow-dustbin-with-footpedal-15L-2.webp"],
+  ["dustbins", "yellow-dustbin-with-footpedal-55L-1.webp"],
+  ["dustbins", "yellow-dustbin-with-footpedal-55L-2.webp"],
+  ["mops", "extendible-microfibre-mop-broom-400mm-1.webp"],
+  ["mops", "extendible-microfibre-mop-broom-400mm-2.webp"],
+  ["mops", "extendible-microfibre-mop-broom-400mm-3.webp"],
+  ["mops", "fan-mop-clip-and-wooden-stick-1.webp"],
+  ["mops", "fan-mop-clip-and-wooden-stick-2.webp"],
+  ["mops", "fan-mop-clip-and-wooden-stick-3.webp"],
+  ["mops", "fan-mop-head-general-400g.webp"],
+  ["mops", "hygienic-fan-mop-complete-yellow-1.webp"],
+  ["mops", "hygienic-fan-mop-complete-yellow-2.webp"],
+  ["mops", "round-cotton-mop-with-wooden-stick-400g.webp"],
+  ["paper-products", "1-ply-toilet-paper-48R.webp"],
+  ["paper-products", "2-ply-toilet-paper-48R.webp"],
+  ["paper-products", "autocut-hand-towel-200mmx150m-6pack.webp"],
+  [
+    "paper-products",
+    "box-of-3000-serviettes-for-take-away-outlets-2-ply-1.webp",
+  ],
+  [
+    "paper-products",
+    "box-of-3000-serviettes-for-take-away-outlets-2-ply-2.webp",
+  ],
+  ["paper-products", "center-perf-hand-towel-210mmx300m-4pack.webp"],
+  [
+    "paper-products",
+    "decca-roll-hand-towel-premium-100mmx54m-8rolls-per-pack.webp",
+  ],
+  [
+    "paper-products",
+    "folded-hand-towels-12-packets-of-200-towels-2-ply-1.webp",
+  ],
+  [
+    "paper-products",
+    "folded-hand-towels-12-packets-of-200-towels-2-ply-2.webp",
+  ],
+  [
+    "paper-products",
+    "folded-hand-towels-12-packets-of-200-towels-2-ply-3.webp",
+  ],
+  ["paper-products", "garage-roll-150mm-2point4kg.webp"],
+  ["paper-products", "garage-roll-200mm-4point8kg.webp"],
+  ["trollies", "small-family-trolley-yellow-20L.webp"],
+] as const;
+
+function titleFromFilename(filename: string) {
+  return filename
+    .replace(".webp", "")
+    .replace(/-/g, " ")
+    .replace(/\b\w/g, (letter) => letter.toUpperCase())
+    .replace(/Point/g, ".");
+}
+
+function slugFromFilename(category: string, filename: string) {
+  return `${category}-${filename
+    .replace(".webp", "")
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")}`;
+}
+
+export const products: Product[] = assetFiles.map(
+  ([category, filename], index) => {
+    const image = `/images/${category}/${filename}`;
+    return {
+      id: index + 1,
+      slug: slugFromFilename(category, filename),
+      name: titleFromFilename(filename),
+      parentCategory: categoryLabels[category],
+      subcategory: "",
+      price: 99,
+      unit: "Each",
+      tag: "Available",
+      image,
+      gallery: [image],
+      desc: "Reliable product for homes, businesses and facilities.",
+      directions:
+        "Use according to the product requirements and intended application.",
+      caution: "Store safely and follow the product label instructions.",
+    };
+  },
+);
 
 export function whatsappLink(message: string) {
-  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 }
 
 export function getProduct(slug: string) {
-  return products.find((product) => product.slug === slug)
+  return products.find((product) => product.slug === slug);
 }
