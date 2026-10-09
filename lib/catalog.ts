@@ -559,6 +559,183 @@ export const productDetailsBySlug: Record<string, ProductDetails> = {
     caution:
       "Place on a stable, level surface. Avoid overfilling and keep fingers clear of the lid mechanism. Clean regularly to maintain hygiene.",
   },
+  "mops-extendible-microfibre-mop-broom-400mm": {
+    price: 99,
+    unit: "Each",
+    tag: "Available",
+    subcategory: "Mops",
+    desc: "Extendible 400mm microfibre mop broom suitable for cleaning floors and collecting dust, dirt and light debris from smooth surfaces.",
+    directions:
+      "Adjust the handle to a comfortable length and use gentle sweeping or mopping motions. Clean the microfibre head after use and allow it to dry before storage.",
+    caution:
+      "Avoid excessive force when extending the handle. Follow the manufacturer's washing instructions and store in a clean, dry place.",
+  },
+
+  "mops-fan-mop-clip-and-wooden-stick": {
+    price: 60,
+    unit: "Each",
+    tag: "Available",
+    subcategory: "Mops",
+    desc: "Fan mop with a wooden stick and clip attachment, suitable for everyday floor cleaning in homes, offices and commercial spaces.",
+    directions:
+      "Secure a compatible mop head using the clip attachment. Use with a suitable floor-cleaning solution if required, then rinse and dry the mop after use.",
+    caution:
+      "Ensure the mop head is securely attached before use. Do not leave the wooden handle soaking in water. Store in a dry place.",
+  },
+
+  "mops-fan-mop-head-general-400g": {
+    price: 40,
+    unit: "Each",
+    tag: "Available",
+    subcategory: "Mop heads",
+    desc: "General-purpose 400g fan mop head suitable for routine floor cleaning in homes, offices and other workspaces.",
+    directions:
+      "Attach securely to a compatible fan mop handle or clip. Use with water and a suitable floor cleaner as needed. Rinse thoroughly after use and allow to dry.",
+    caution:
+      "Check compatibility with the mop handle before use. Clean after use and store in a well-ventilated, dry place.",
+  },
+
+  "mops-hygienic-fan-mop-complete-yellow": {
+    price: 60,
+    unit: "Each",
+    tag: "Available",
+    subcategory: "Mops",
+    desc: "Complete yellow hygienic fan mop designed for routine floor cleaning in homes, offices, schools and commercial environments.",
+    directions:
+      "Use with water and a suitable floor-cleaning solution. Rinse the mop head thoroughly after use and allow it to dry before storage.",
+    caution:
+      "Clean regularly to maintain hygiene. Do not store while wet. Keep away from open flames and store in a clean, dry place.",
+  },
+
+  "mops-round-cotton-mop-with-wooden-stick-400g": {
+    price: 50,
+    unit: "Each",
+    tag: "Available",
+    subcategory: "Mops",
+    desc: "400g round cotton mop with a wooden stick, suitable for cleaning floors and absorbing spills in homes, offices and commercial spaces.",
+    directions:
+      "Wet the cotton mop head with water and a suitable floor cleaner. Mop the surface thoroughly, then rinse the head and allow it to dry after use.",
+    caution:
+      "Do not leave the wooden handle soaking in water. Rinse the mop head after use and store in a clean, dry place.",
+  },
+  "paper-products-1-ply-toilet-paper-48r": {
+    price: 325,
+    unit: "48 Rolls",
+    tag: "Available",
+    subcategory: "Toilet paper",
+    desc: "Bulk pack of 48 rolls of 1-ply toilet paper, suitable for everyday use in homes, offices, schools and commercial washrooms.",
+    directions:
+      "Place rolls in a suitable toilet paper holder or dispenser. Store unused rolls in a clean, dry area.",
+    caution:
+      "Keep paper dry and away from moisture. Store in a clean area protected from dust and contamination.",
+  },
+
+  "paper-products-2-ply-toilet-paper-48r": {
+    price: 370,
+    unit: "48 Rolls",
+    tag: "Available",
+    subcategory: "Toilet paper",
+    desc: "Bulk pack of 48 rolls of 2-ply toilet paper, suitable for homes, offices, schools and commercial washrooms.",
+    directions:
+      "Place rolls in a suitable toilet paper holder or dispenser. Store unused rolls in a clean, dry area.",
+    caution:
+      "Keep paper dry and away from moisture. Store in a clean area protected from dust and contamination.",
+  },
+
+  "paper-products-autocut-hand-towel-200mmx150m-6pack": {
+    price: 496,
+    unit: "6 Pack",
+    tag: "Available",
+    subcategory: "Paper hand towels",
+    desc: "Pack of six 200mm x 150m autocut hand towel rolls, suitable for compatible automatic dispensers in offices, washrooms and commercial facilities.",
+    directions:
+      "Install each roll in a compatible autocut hand towel dispenser according to the dispenser manufacturer's instructions.",
+    caution:
+      "Confirm roll dimensions and dispenser compatibility before installation. Store in a clean, dry place.",
+  },
+
+  "paper-products-box-of-3000-serviettes-for-take-away-outlets-2-ply": {
+    price: 250,
+    unit: "Box of 3000",
+    tag: "Available",
+    subcategory: "Serviettes",
+    desc: "Box of 3,000 2-ply serviettes suitable for take-away outlets, restaurants, catering services and other food-service businesses.",
+    directions:
+      "Dispense serviettes as required for meals, takeaway orders and food-service use.",
+    caution:
+      "Keep serviettes dry and protected from dust, moisture and food contamination. Store in a clean area.",
+  },
+
+  "paper-products-center-perf-hand-towel-210mmx300m-4pack": {
+    price: 470,
+    unit: "4 Pack",
+    tag: "Available",
+    subcategory: "Paper hand towels",
+    desc: "Pack of four 210mm x 300m centre-pull perforated hand towel rolls, suitable for compatible dispensers in washrooms, kitchens and commercial workspaces.",
+    directions:
+      "Load the roll into a compatible centre-feed dispenser and pull the towel from the centre opening as needed.",
+    caution:
+      "Check roll dimensions and dispenser compatibility before use. Store in a clean, dry place.",
+  },
+  "paper-products-decca-roll-hand-towel-premium-100mmx54m-8rolls-per-pack": {
+    price: 533,
+    unit: "8 Rolls",
+    tag: "Available",
+    subcategory: "Paper hand towels",
+    desc: "Pack of 8 premium Decca roll hand towels, each measuring 100mm x 54m, suitable for washrooms, kitchens, offices and commercial facilities.",
+    directions:
+      "Fit the roll into a compatible hand towel dispenser or use as required for hand drying and general wiping.",
+    caution:
+      "Keep rolls dry and protected from dust and contamination. Confirm dispenser compatibility before installation.",
+  },
+
+  "paper-products-folded-hand-towels-12-packets-of-200-towels-2-ply": {
+    price: 465,
+    unit: "12 Packs",
+    tag: "Available",
+    subcategory: "Paper hand towels",
+    desc: "Bulk pack of 12 packets of 200 two-ply folded hand towels, ideal for washrooms, offices, restaurants and commercial facilities.",
+    directions:
+      "Load the folded towels into a compatible dispenser and dispense one towel at a time for hand drying.",
+    caution:
+      "Store in a clean, dry place. Protect unused towels from moisture, dust and contamination.",
+  },
+
+  "paper-products-garage-roll-150mm-2point4kg": {
+    price: 170,
+    unit: "Roll",
+    tag: "Available",
+    subcategory: "Garage rolls",
+    desc: "2.4kg garage paper roll with a width of 150mm, suitable for workshop wiping, cleaning spills and general-purpose maintenance tasks.",
+    directions:
+      "Tear or cut off the required length and use to wipe surfaces, tools and suitable spills. Dispose of used paper responsibly.",
+    caution:
+      "Check surface compatibility before wiping delicate finishes. Keep away from flames and store in a dry place.",
+  },
+
+  "paper-products-garage-roll-200mm-4point8kg": {
+    price: 370,
+    unit: "Roll",
+    tag: "Available",
+    subcategory: "Garage rolls",
+    desc: "4.8kg garage paper roll with a width of 200mm, suitable for workshops, garages, industrial cleaning and general maintenance wiping.",
+    directions:
+      "Tear or cut off the required length for wiping tools, work surfaces and suitable spills. Dispose of used paper responsibly.",
+    caution:
+      "Check surface compatibility before use on delicate finishes. Keep away from flames and store in a clean, dry place.",
+  },
+
+  "trollies-small-family-trolley-yellow-20l": {
+    price: 499,
+    unit: "Each",
+    tag: "Available",
+    subcategory: "Shopping trolleys",
+    desc: "Compact yellow 20L family shopping trolley, suitable for carrying groceries and everyday shopping items.",
+    directions:
+      "Place items evenly inside the trolley and push using the handle. Avoid overloading and keep the load balanced while moving.",
+    caution:
+      "Do not exceed the manufacturer's recommended load capacity. Keep clear of stairs, steep slopes and moving vehicles. Check wheels and handle regularly.",
+  },
 };
 
 export const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "";
