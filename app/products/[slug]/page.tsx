@@ -1,9 +1,10 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, MessageCircle, ShoppingCart } from "lucide-react";
+import { MessageCircle, ShoppingCart } from "lucide-react";
 import { getProduct, products, whatsappLink } from "@/lib/catalog";
 import { ProductGallery } from "@/components/product-gallery";
 import { SiteHeader } from "@/components/site-header";
+import { BackToCatalog } from "@/components/back-to-catalog";
 
 export function generateStaticParams() {
   return products.map((product) => ({ slug: product.slug }));
@@ -35,9 +36,7 @@ export default async function ProductPage({
       <SiteHeader />
       <main className="product-page">
         <div className="shell">
-          <Link href="/#shop" className="product-back">
-            <ArrowLeft size={16} /> Back to supplies
-          </Link>
+          <BackToCatalog />
           <div className="product-detail-grid">
             <ProductGallery name={product.name} images={product.gallery} />
             <article className="product-detail-copy">

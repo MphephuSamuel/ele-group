@@ -38,13 +38,29 @@ const categories = [
 
 type CartItem = Product & { quantity: number };
 
+function getInitialCatalogState() {
+  if (typeof window === "undefined") {
+    return { category: "All products", subcategory: null, search: "", page: 1 };
+  }
+
+  const params = new URLSearchParams(window.location.search);
+  const page = Number(params.get("page"));
+  return {
+    category: params.get("category") ?? "All products",
+    subcategory: params.get("subcategory"),
+    search: params.get("search") ?? "",
+    page: Number.isInteger(page) && page > 0 ? page : 1,
+  };
+}
+
 export default function Page() {
-  const [activeCategory, setActiveCategory] = useState("All products");
+  const initialState = getInitialCatalogState();
+  const [activeCategory, setActiveCategory] = useState(initialState.category);
   const [activeSubcategory, setActiveSubcategory] = useState<string | null>(
-    null,
+    initialState.subcategory,
   );
-  const [search, setSearch] = useState("");
-  const [page, setPage] = useState(1);
+  const [search, setSearch] = useState(initialState.search);
+  const [page, setPage] = useState(initialState.page);
   const pageSize = 12;
   const [cart, setCart] = useState<CartItem[]>([]);
   const [cartOpen, setCartOpen] = useState(false);
@@ -73,8 +89,28 @@ export default function Page() {
   );
 
   useEffect(() => {
-    setPage(1);
-  }, [activeCategory, search]);
+    const params = new URLSearchParams();
+    if (activeCategory !== "All products") {
+      params.set("category", activeCategory);
+    }
+    if (activeSubcategory) params.set("subcategory", activeSubcategory);
+    if (search) params.set("search", search);
+    if (page > 1) params.set("page", String(page));
+    const query = params.toString();
+    window.history.replaceState(
+      null,
+      "",
+      `${window.location.pathname}${query ? `?${query}` : ""}${window.location.hash}`,
+    );
+  }, [activeCategory, activeSubcategory, search, page]);
+
+  useEffect(() => {
+    const savedReturn = window.sessionStorage.getItem("catalog-return");
+    if (!savedReturn) return;
+    window.sessionStorage.removeItem("catalog-return");
+    const { scrollY } = JSON.parse(savedReturn) as { scrollY: number };
+    window.setTimeout(() => window.scrollTo(0, scrollY), 0);
+  }, []);
 
   const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
   const cartTotal = cart.reduce(
@@ -233,6 +269,7 @@ export default function Page() {
                     onClick={() => {
                       setActiveCategory(category.name);
                       setActiveSubcategory(null);
+                      setPage(1);
                     }}
                   >
                     {category.name}
@@ -249,6 +286,7 @@ export default function Page() {
                           onClick={() => {
                             setActiveCategory(category.name);
                             setActiveSubcategory(subcategory);
+                            setPage(1);
                           }}
                         >
                           {subcategory}
@@ -263,7 +301,10 @@ export default function Page() {
               <Search size={18} />
               <input
                 value={search}
-                onChange={(event) => setSearch(event.target.value)}
+                onChange={(event) => {
+                  setSearch(event.target.value);
+                  setPage(1);
+                }}
                 placeholder="Search supplies..."
                 aria-label="Search supplies"
               />
@@ -275,6 +316,15 @@ export default function Page() {
                 <Link
                   href={`/products/${product.slug}`}
                   className="product-card-link"
+                  onClick={() => {
+                    window.sessionStorage.setItem(
+                      "catalog-return",
+                      JSON.stringify({
+                        href: window.location.href,
+                        scrollY: window.scrollY,
+                      }),
+                    );
+                  }}
                 >
                   <div className="product-image">
                     <img src={product.image} alt={product.name} />
