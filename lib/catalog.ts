@@ -739,6 +739,9 @@ export const productDetailsBySlug: Record<string, ProductDetails> = {
 };
 
 export const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "";
+export const SITE_URL = (
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://ele-group.vercel.app"
+).replace(/\/$/, "");
 
 export const categoryGroups = [
   { name: "Chemicals", subcategories: [] },

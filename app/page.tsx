@@ -5,6 +5,7 @@ import { useEffect, useMemo, useState } from "react";
 import {
   categoryGroups,
   products,
+  SITE_URL,
   type Product,
   whatsappLink,
 } from "@/lib/catalog";
@@ -38,32 +39,17 @@ const categories = [
 
 type CartItem = Product & { quantity: number };
 
-function getInitialCatalogState() {
-  if (typeof window === "undefined") {
-    return { category: "All products", subcategory: null, search: "", page: 1 };
-  }
-
-  const params = new URLSearchParams(window.location.search);
-  const page = Number(params.get("page"));
-  return {
-    category: params.get("category") ?? "All products",
-    subcategory: params.get("subcategory"),
-    search: params.get("search") ?? "",
-    page: Number.isInteger(page) && page > 0 ? page : 1,
-  };
-}
-
 export default function Page() {
-  const initialState = getInitialCatalogState();
-  const [activeCategory, setActiveCategory] = useState(initialState.category);
+  const [activeCategory, setActiveCategory] = useState("All products");
   const [activeSubcategory, setActiveSubcategory] = useState<string | null>(
-    initialState.subcategory,
+    null,
   );
-  const [search, setSearch] = useState(initialState.search);
-  const [page, setPage] = useState(initialState.page);
+  const [search, setSearch] = useState("");
+  const [page, setPage] = useState(1);
   const pageSize = 12;
   const [cart, setCart] = useState<CartItem[]>([]);
   const [cartOpen, setCartOpen] = useState(false);
+  const [catalogReady, setCatalogReady] = useState(false);
 
   const filteredProducts = useMemo(
     () =>
@@ -89,6 +75,19 @@ export default function Page() {
   );
 
   useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const restoredPage = Number(params.get("page"));
+    setActiveCategory(params.get("category") ?? "All products");
+    setActiveSubcategory(params.get("subcategory"));
+    setSearch(params.get("search") ?? "");
+    setPage(
+      Number.isInteger(restoredPage) && restoredPage > 0 ? restoredPage : 1,
+    );
+    setCatalogReady(true);
+  }, []);
+
+  useEffect(() => {
+    if (!catalogReady) return;
     const params = new URLSearchParams();
     if (activeCategory !== "All products") {
       params.set("category", activeCategory);
@@ -102,7 +101,7 @@ export default function Page() {
       "",
       `${window.location.pathname}${query ? `?${query}` : ""}${window.location.hash}`,
     );
-  }, [activeCategory, activeSubcategory, search, page]);
+  }, [activeCategory, activeSubcategory, search, page, catalogReady]);
 
   useEffect(() => {
     const savedReturn = window.sessionStorage.getItem("catalog-return");
@@ -142,7 +141,14 @@ export default function Page() {
     );
   }
 
-  const checkoutMessage = `Hello Ele Group, I would like to place an order:\n\n${cart.map((item) => `• ${item.name} x${item.quantity} — R${item.price * item.quantity}`).join("\n")}\n\nEstimated total: R${cartTotal}\n\nPlease confirm availability and delivery.`;
+  const checkoutMessage = `Hello Ele Group, I would like to place an order:\n\n${cart
+    .map(
+      (item) =>
+        `• ${item.name} x${item.quantity} — R${item.price * item.quantity}\n  ${SITE_URL}/products/${item.slug}`,
+    )
+    .join(
+      "\n",
+    )}\n\nEstimated total: R${cartTotal}\n\nPlease confirm availability and delivery.`;
 
   return (
     <main className="min-h-screen bg-background text-foreground">

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { MessageCircle, ShoppingCart } from "lucide-react";
-import { getProduct, products, whatsappLink } from "@/lib/catalog";
+import { getProduct, products, SITE_URL, whatsappLink } from "@/lib/catalog";
 import { ProductGallery } from "@/components/product-gallery";
 import { SiteHeader } from "@/components/site-header";
 import { BackToCatalog } from "@/components/back-to-catalog";
@@ -30,7 +30,7 @@ export default async function ProductPage({
   const { slug } = await params;
   const product = getProduct(slug);
   if (!product) notFound();
-  const orderMessage = `Hello Ele Group, I would like to order ${product.name} (${product.unit}) at R${product.price}. Please confirm availability and delivery.`;
+  const orderMessage = `Hello Ele Group, I would like to order ${product.name} (${product.unit}) at R${product.price}.\n\nProduct link: ${SITE_URL}/products/${product.slug}\n\nPlease confirm availability and delivery.`;
   return (
     <>
       <SiteHeader />
