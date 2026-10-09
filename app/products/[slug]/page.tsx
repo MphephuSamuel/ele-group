@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, MessageCircle, ShoppingCart } from "lucide-react";
 import { getProduct, products, whatsappLink } from "@/lib/catalog";
 import { ProductGallery } from "@/components/product-gallery";
+import { SiteHeader } from "@/components/site-header";
 
 export function generateStaticParams() {
   return products.map((product) => ({ slug: product.slug }));
@@ -31,6 +32,7 @@ export default async function ProductPage({
   const orderMessage = `Hello Ele Group, I would like to order ${product.name} (${product.unit}) at R${product.price}. Please confirm availability and delivery.`;
   return (
     <main className="product-page">
+      <SiteHeader />
       <div className="shell">
         <Link href="/#shop" className="product-back">
           <ArrowLeft size={16} /> Back to supplies

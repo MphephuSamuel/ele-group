@@ -1238,7 +1238,7 @@ button {
   html,
   body {
     max-width: 100%;
-    overflow-x: hidden;
+    overflow-x: clip;
   }
   .shell {
     width: min(100% - 30px, 1160px);
