@@ -46,7 +46,7 @@ export default function Page() {
   );
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
-  const pageSize = 4;
+  const pageSize = 12;
   const [cart, setCart] = useState<CartItem[]>([]);
   const [cartOpen, setCartOpen] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(false);
