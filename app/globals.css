@@ -742,6 +742,32 @@ button {
   color: var(--primary);
   font-weight: 700;
 }
+.page-not-found {
+  display: flex;
+  min-height: 58vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 70px 20px;
+  text-align: center;
+  color: #718083;
+}
+.page-not-found > svg {
+  color: var(--primary);
+}
+.page-not-found .eyebrow {
+  margin-top: 18px;
+}
+.page-not-found h1 {
+  margin: 12px 0 8px;
+  color: var(--foreground);
+  font-size: clamp(32px, 5vw, 52px);
+}
+.page-not-found p:not(.eyebrow) {
+  max-width: 430px;
+  margin: 0 0 24px;
+  line-height: 1.6;
+}
 .delivery-section {
   padding-bottom: 100px;
 }

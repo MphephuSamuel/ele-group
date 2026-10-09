@@ -418,9 +418,9 @@ export default function Page() {
           </div>
           <div>
             <h3>Explore</h3>
-            <a href="/shop">Shop supplies</a>
-            <a href="/delivery">Bulk orders</a>
-            <a href="/contact">Get in touch</a>
+            <a href="/#shop">Shop supplies</a>
+            <a href="/#delivery">Bulk orders</a>
+            <a href="/#contact">Get in touch</a>
           </div>
           <div id="contact">
             <h3>Contact</h3>
