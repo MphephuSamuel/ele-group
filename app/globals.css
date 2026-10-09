@@ -525,11 +525,17 @@ button {
   padding: 17px;
 }
 .product-category {
+  display: -webkit-box;
+  height: 28px;
+  overflow: hidden;
   color: #80908e;
   font-size: 10px;
   font-weight: 700;
+  line-height: 1.4;
   text-transform: uppercase;
   letter-spacing: 0.09em;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 .product-details h3 {
   display: -webkit-box;
