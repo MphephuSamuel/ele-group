@@ -532,18 +532,29 @@ button {
   letter-spacing: 0.09em;
 }
 .product-details h3 {
+  display: -webkit-box;
+  min-height: 36px;
   margin: 7px 0 7px;
+  overflow: hidden;
   font-size: 15px;
+  line-height: 1.2;
   letter-spacing: -0.02em;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 .product-details > p {
-  min-height: 53px;
+  display: -webkit-box;
+  height: 53px;
   margin: 0;
+  overflow: hidden;
   color: #788788;
   font-size: 11px;
   line-height: 1.55;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
 }
 .product-bottom {
+  display: flex;
   justify-content: space-between;
   align-items: end;
   margin-top: 18px;
@@ -1331,11 +1342,13 @@ button {
     padding: 12px;
   }
   .product-details h3 {
+    min-height: 32px;
     font-size: 13px;
   }
   .product-details > p {
-    min-height: 68px;
+    height: 62px;
     font-size: 10px;
+    -webkit-line-clamp: 4;
   }
   .product-bottom {
     display: block;
